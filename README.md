@@ -1,14 +1,11 @@
 # picorg
-A set of scripts to organize my pictures. Tested with Python 3.6.0 on Windows 7 64-bit.
+A set of scripts to organize pictures. Tested with Python 3.6.0 on Windows 7 64-bit.
 
-## settings.json
-The settings for the scripts.
+## Installation
+Install dependencies with `pip3 install -r requirements.txt`.
 
-## rename.py
-Renames all images in a folder. It tries to use the timestamp of when the image was taken.
+## The src folder
+You will find all you need in the src-folder.
 
-## duplicates.py
-Traverses all folders in the setting file and tries to find any duplicates (by filename).
-
-## thumbs.py
-Creates thumbnails of all images. Each thumbnail is stored in a subfolder called `.picorg_thumbs`.
+* `rename.py` renames all images in the current working directory. It tries to use the timestamp of when the image was taken from the EXIF data. All renamed files will be moved to a folder called **OK**, and if the script cannot find a suitable name, the file will be moved to the **NOK** folder.
+* `duplicates.py` traverses all folders listed in the settings.json file and lists all duplicated filenames and where to find them. Useful when using more than one root folder for your pictures.

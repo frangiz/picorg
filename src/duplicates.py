@@ -3,8 +3,8 @@ import os
 import settings
 
 def find_duplicates():
-	paths = settings.get_setting('pic_paths', [])
-	exclude_extensions = settings.get_setting('exclude_extensions', [])
+	paths = settings.get('pic_paths', [])
+	exclude_extensions = settings.get('exclude_extensions', [])
 	files = {}
 	for path in paths:
 		files_in_path = [(f, os.path.join(dp, f))
