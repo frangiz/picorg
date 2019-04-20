@@ -2,9 +2,11 @@ import unittest
 
 # Path hack.
 import sys, os
-sys.path.insert(0, os.path.abspath('..'))
+
+sys.path.insert(0, os.path.abspath(".."))
 
 import src.timestamp_finder
+
 
 class DateTextToFilename(unittest.TestCase):
     def test_valid_date_text(self):
@@ -14,6 +16,7 @@ class DateTextToFilename(unittest.TestCase):
     def test_empty_date_text(self):
         result = src.timestamp_finder.date_text_to_filename(": :    :    :")
         self.assertIsNone(result)
+
 
 class GetTimestamp(unittest.TestCase):
     def test_exif_version_0220(self):
