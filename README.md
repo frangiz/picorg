@@ -1,4 +1,6 @@
 # picorg
+[![Build Status](https://travis-ci.com/frangiz/picorg.svg?branch=master)](https://travis-ci.com/frangiz/picorg)
+
 A set of scripts to organize pictures. This is a work in progress and does not fully work at the moment.
 
 ## Installation
