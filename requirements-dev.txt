@@ -3,3 +3,4 @@ exifread
 
 pytest>=4.4
 tox
+twine

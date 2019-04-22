@@ -36,3 +36,8 @@ or using tox
 ```
 tox
 ```
+
+## Creating a new version.
+* Create a new version up bumping the version in setup.py.
+* Create a tag in git and push.
+* Push the new package to pypi using ```twing upload dist/*```
