@@ -1,4 +1,4 @@
-from picorg import timestamp_finder
+import timestamp_finder
 
 
 def test_valid_date_text():
