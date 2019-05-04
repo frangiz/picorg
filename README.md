@@ -12,7 +12,7 @@ pip install picorg
 
 ## Usage
 ```python
-# Renames all images in the current working directory. It tries to use the timestamp of when the image was taken from the EXIF data. All renamed files will be moved to a folder called **OK**, and if the script cannot find a suitable name, the file will be moved to the **NOK** folder.
+# Renames all images in the current working directory and its subdirectories. It tries to use the timestamp of when the image was taken from the EXIF data. If the script cannot find a suitable name for a file, it will be moved to a **NOK** folder and the filename will be printed to the console.
 python -m picorg -a rename
 
 # Traverses all folders listed in the settings.json file and lists all duplicated filenames and where to find them. Useful when using more than one root folder for your pictures.
@@ -36,7 +36,7 @@ pip install -e .
 
 Run tests with
 ```python
-pytest
+pytest --cov=src --cov-report html .
 ```
 or using tox
 ```
@@ -44,6 +44,6 @@ tox
 ```
 
 ## Creating a new version.
-* Create a new version up bumping the version in setup.py.
+* Create a new version by bumping the version in setup.py.
 * Create a tag in git and push.
 * Push the new package to pypi using ```twine upload dist/*```
