@@ -45,5 +45,7 @@ tox
 
 ## Creating a new version.
 * Create a new version by bumping the version in setup.py.
+* Commit and push.
+* Wait for Travis CI to build.
 * Create a tag in git and push.
 * Push the new package to pypi using ```twine upload dist/*```
