@@ -28,7 +28,7 @@ def _list_files(root: str) -> List[str]:
     for filename in glob.glob(os.path.join(root, "**"), recursive=True):
         _, ext = os.path.splitext(filename)
         if ext.lower() in types:
-            result.append(filename)
+            result.append(pathlib.Path(filename))
     return result
 
 

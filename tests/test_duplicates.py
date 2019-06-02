@@ -1,25 +1,22 @@
-import shutil
 import pathlib
-from os import path, makedirs
 
 import duplicates
 import settings
 
-BASE_PATH = "tests/test_data"
-# Will be set to BASE_PATH/tmp2/<test_name>
+import test_base
+
+
 TEST_DIR = ""
 
 
 def setup_module(module):
-    if path.exists(path.join(BASE_PATH, "tmp2")):
-        shutil.rmtree(path.join(BASE_PATH, "tmp2"))
+    test_base.setup_module(module)
 
 
 def setup_function(function):
-    print("setup_function")
     global TEST_DIR
-    TEST_DIR = path.join(BASE_PATH, "tmp2", function.__name__)
-    makedirs(TEST_DIR)
+    TEST_DIR = test_base.get_test_folder(function.__name__)
+    TEST_DIR.mkdir(parents=True)
 
 
 def test_find_duplicates_one_root():
@@ -36,8 +33,8 @@ def test_find_duplicates_one_root():
 
     expected = {
         "pic2.jpg": [
-            path.join(TEST_DIR, "pic2.jpg"),
-            path.join(TEST_DIR, "subfolder1", "pic2.jpg"),
+            pathlib.Path(TEST_DIR, "pic2.jpg"),
+            pathlib.Path(TEST_DIR, "subfolder1", "pic2.jpg"),
         ]
     }
     assert len(result) == len(expected)
@@ -63,16 +60,15 @@ def test_find_duplicates_multiple_roots():
 
     result = duplicates.find_duplicates()
 
-    print(result)
     expected = {
         "pic1.jpg": [
-            path.join(TEST_DIR, "root1", "pic1.jpg"),
-            path.join(TEST_DIR, "root2", "subfolder1", "pic1.jpg"),
+            pathlib.Path(TEST_DIR, "root1", "pic1.jpg"),
+            pathlib.Path(TEST_DIR, "root2", "subfolder1", "pic1.jpg"),
         ],
         "pic2.jpg": [
-            path.join(TEST_DIR, "root1", "pic2.jpg"),
-            path.join(TEST_DIR, "root1", "subfolder1", "pic2.jpg"),
-            path.join(TEST_DIR, "root2", "pic2.jpg"),
+            pathlib.Path(TEST_DIR, "root1", "pic2.jpg"),
+            pathlib.Path(TEST_DIR, "root1", "subfolder1", "pic2.jpg"),
+            pathlib.Path(TEST_DIR, "root2", "pic2.jpg"),
         ],
     }
     assert len(result) == len(expected)
