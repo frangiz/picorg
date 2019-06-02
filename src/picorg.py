@@ -1,7 +1,7 @@
 import argparse
 
-from rename import rename_files
 from duplicates import find_duplicates
+from rename import rename_files
 
 
 def main():

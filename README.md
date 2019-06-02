@@ -13,10 +13,10 @@ pip install picorg
 ## Usage
 ```python
 # Renames all images in the current working directory and its subdirectories. It tries to use the timestamp of when the image was taken from the EXIF data. If the script cannot find a suitable name for a file, it will be moved to a **NOK** folder and the filename will be printed to the console.
-python -m picorg -a rename
+picorg -a rename
 
 # Traverses all folders listed in the settings.json file and lists all duplicated filenames and where to find them. Useful when using more than one root folder for your pictures.
-python -m picorg -a duplicates
+picorg -a duplicates
 ```
 
 ## Configuration
@@ -42,6 +42,9 @@ or using tox
 ```
 tox
 ```
+
+### Before commit
+Run the script `pre-commit.sh` before any commits on order to be consistent with formatting and having sorted imports.
 
 ## Creating a new version.
 * Create a new version by bumping the version in setup.py.

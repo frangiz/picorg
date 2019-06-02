@@ -22,4 +22,5 @@ setup(
     url="https://github.com/frangiz/picorg",
     author="Björn Olsson Jarl",
     author_email="frangiz@gmail.com",
+    entry_points={"console_scripts": ["picorg = picorg:main"]},
 )
