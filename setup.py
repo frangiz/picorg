@@ -23,4 +23,5 @@ setup(
     author="Björn Olsson Jarl",
     author_email="frangiz@gmail.com",
     entry_points={"console_scripts": ["picorg = picorg:main"]},
+    python_requires=">=3.6",
 )
