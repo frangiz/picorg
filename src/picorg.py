@@ -1,6 +1,6 @@
 import argparse
 
-from duplicates import find_duplicates
+from duplicates import handle_duplicates
 from rename import rename_files
 
 
@@ -21,7 +21,8 @@ def main():
     if args.action == "rename":
         rename_files()
     elif args.action == "duplicates":
-        find_duplicates()
+        result = handle_duplicates()
+        print(f"Found {len(result)} duplicates.")
 
 
 if __name__ == "__main__":

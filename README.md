@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/frangiz/picorg.svg?branch=master)](https://travis-ci.com/frangiz/picorg)
 [![Build Status](https://img.shields.io/github/license/frangiz/picorg.svg)](https://img.shields.io/github/license/frangiz/picorg.svg)
 
-A set of scripts to organize pictures. This is a work in progress and does not fully work at the moment.
+A set of scripts to organize pictures. It is ideal if you save your images in different locations on your hard drives and manually backup your images from your phone.
 
 ## Installation
 ```python
@@ -15,7 +15,10 @@ pip install picorg
 # Renames all images in the current working directory and its subdirectories. It tries to use the timestamp of when the image was taken from the EXIF data. If the script cannot find a suitable name for a file, it will be moved to a **NOK** folder and the filename will be printed to the console.
 picorg -a rename
 
-# Traverses all folders listed in the settings.json file and lists all duplicated filenames and where to find them. Useful when using more than one root folder for your pictures.
+# Checks all files in current working dir for files with the same content. If two files has the same content,
+# the one with the "biggest" name is moved to a *duplicates* folder. It then traverses all the files in
+# all the directories listed in pic_paths (in the settings file). If a file matches by name and content,
+# the file in current working dir will be moved to the *duplicates* folder.
 picorg -a duplicates
 ```
 
@@ -51,4 +54,5 @@ Run the script `pre-commit.sh` before any commits on order to be consistent with
 * Commit and push.
 * Wait for Travis CI to build.
 * Create a tag in git and push.
-* Push the new package to pypi using ```twine upload dist/*```
+* Wait for Travis CI to build the tag.
+* Push the new package to pypi using `twine upload dist/*`

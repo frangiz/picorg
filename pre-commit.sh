@@ -1,4 +1,6 @@
 #!/bin/bash
+. clear.sh
+
 pip install black fiximports
 
 for file in ./src/*
