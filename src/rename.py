@@ -7,8 +7,10 @@ import timestamp_finder
 
 
 def rename_files(root: str = ".") -> None:
-    for file in _list_files(root):
+    files = _list_files(root)
+    for file in files:
         rename_file(file)
+    print(f"Processed {len(files)} files.")
 
 
 def rename_file(file) -> None:
