@@ -3,7 +3,7 @@ from itertools import combinations
 from pathlib import Path
 from typing import List
 
-import settings
+from src import settings
 
 
 def handle_duplicates() -> List[Path]:
