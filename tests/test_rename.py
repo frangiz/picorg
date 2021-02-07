@@ -1,9 +1,9 @@
-import rename
-import shutil
 import pathlib
+import shutil
 
 import test_base
 
+import rename
 
 TEST_DIR = ""
 

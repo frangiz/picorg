@@ -1,11 +1,10 @@
-import pathlib
 import os
-
-import duplicates
-import settings
+import pathlib
 
 import test_base
 
+import duplicates
+import settings
 
 TEST_DIR = ""
 PREV_WORKING_DIR = ""

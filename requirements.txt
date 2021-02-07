@@ -1,10 +1,9 @@
 pillow
 exifread
 
+# test
 pytest>=4.4
-coverage
 pytest-cov
-tox
-twine
-black
-fiximports
+
+# formatting
+pre-commit==2.10.1

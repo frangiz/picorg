@@ -1,9 +1,8 @@
 from datetime import datetime
 
+import exifread
 from PIL import Image
 from PIL.ExifTags import TAGS
-
-import exifread
 
 
 def get_timestamp(filename):
@@ -39,7 +38,7 @@ class PILWrapper:
             field = PILWrapper.__get_field(exif_data, "DateTimeDigitized")
             if field is not None and date_text_to_filename(field[0]) is not None:
                 return field[0]
-        except Exception as e:
+        except Exception:
             # print(e.__repr__())
             return None
 
@@ -56,7 +55,6 @@ class ExifReadWrapper:
     @staticmethod
     def get_timestamp(filename):
         try:
-            exif_data = None
             with open(filename, "rb") as f:
                 tags = exifread.process_file(f)  # Return Exif tags
             field = ExifReadWrapper.__get_field(tags, "EXIF DateTimeDigitized")
@@ -64,7 +62,7 @@ class ExifReadWrapper:
                 return None
 
             return str(field)
-        except Exception as e:
+        except Exception:
             # print(e.__repr__())
             return None
 

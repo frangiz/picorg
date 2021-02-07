@@ -1,5 +1,4 @@
 import filecmp
-
 from itertools import combinations
 from pathlib import Path
 from typing import List
