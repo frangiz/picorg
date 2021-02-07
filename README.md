@@ -26,9 +26,9 @@ picorg -a duplicates
 A settings file is created in <USER_HOME>/.picorg that stores the users settings.
 
 ## Developing
-Install dependencies from the requirements-dev.txt file
+Install dependencies from the requirements.txt file
 ```python
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 ```
 
 Create a package and install with
@@ -37,22 +37,13 @@ python setup.py bdist_wheel sdist
 pip install -e .
 ```
 
-Run tests with
-```python
-pytest --cov=src --cov-report html .
-```
-or using tox
-```
-tox
-```
-
 ### Before commit
-Run the script `pre-commit.sh` before any commits on order to be consistent with formatting and having sorted imports.
+Run the command `pre-commit run --verbose --all-files --show-diff-on-failure` before any commits on order to be consistent with formatting and having sorted imports.
 
 ## Creating a new version.
 * Create a new version by bumping the version in setup.py.
 * Commit and push.
-* Wait for Travis CI to build.
+* Wait for Github to build.
 * Create a tag in git and push.
-* Wait for Travis CI to build the tag.
+* Wait for Github to build the tag.
 * Push the new package to pypi using `twine upload dist/*`

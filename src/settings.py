@@ -1,7 +1,5 @@
 import json
-
 from pathlib import Path
-
 
 SETTINGS_DIR = Path(Path.home(), ".picorg")
 

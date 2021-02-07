@@ -1,9 +1,8 @@
 import os
-
 from pathlib import Path
 from typing import List
 
-import timestamp_finder
+from src import timestamp_finder
 
 
 def rename_files(root: str = ".") -> None:
@@ -23,7 +22,7 @@ def rename_file(file) -> None:
             os.rename(file, new_filename)
 
 
-def _list_files(root: str) -> List[str]:
+def _list_files(root: str) -> List[Path]:
     types = [".jpg"]
     result = []
     for filename in Path(root).glob("**/*"):
@@ -45,6 +44,7 @@ def _find_new_filename(file: str, exif_name: str) -> str:
         )
         if not suggested_path.is_file():
             return str(suggested_path)
+    raise RuntimeError("This should never happen...")
 
 
 def _handle_no_exif_found(file: str) -> None:
