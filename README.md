@@ -1,7 +1,7 @@
 # picorg
 [![Build Status](https://img.shields.io/pypi/v/picorg.svg?style=flat)](https://img.shields.io/pypi/v/picorg.svg?style=flat)
-[![Build Status](https://travis-ci.com/frangiz/picorg.svg?branch=master)](https://travis-ci.com/frangiz/picorg)
 [![Build Status](https://img.shields.io/github/license/frangiz/picorg.svg)](https://img.shields.io/github/license/frangiz/picorg.svg)
+[![codecov](https://codecov.io/gh/frangiz/picorg/branch/master/graph/badge.svg?token=D8VG9ENXZ7)](https://codecov.io/gh/frangiz/picorg)
 
 A set of scripts to organize pictures. It is ideal if you save your images in different locations on your hard drives and manually backup your images from your phone.
 
