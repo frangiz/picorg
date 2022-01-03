@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 Create a package and install with
 ```python
-python setup.py bdist_wheel sdist
+python -m build
 pip install -e .
 ```
 
@@ -46,4 +46,4 @@ Run the command `pre-commit run --verbose --all-files --show-diff-on-failure` be
 * Wait for Github to build.
 * Create a tag in git and push.
 * Wait for Github to build the tag.
-* Push the new package to pypi using `twine upload dist/*`
+* Push the new package to pypi using `twine upload dist/picorg-<VERSION>-*`

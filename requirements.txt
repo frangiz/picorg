@@ -7,3 +7,6 @@ pytest-cov==3.0.0
 
 # formatting
 pre-commit==2.16.0
+
+# building package
+build==0.7.0
