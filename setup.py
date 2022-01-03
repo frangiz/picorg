@@ -13,7 +13,6 @@ setup(
     package_dir={"": "src"},
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
@@ -26,5 +25,5 @@ setup(
     author="Björn Olsson Jarl",
     author_email="frangiz@gmail.com",
     entry_points={"console_scripts": ["picorg = picorg:main"]},
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 )
