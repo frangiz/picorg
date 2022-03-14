@@ -1,4 +1,4 @@
-pillow==9.0.0
+pillow==9.0.1
 exifread==2.3.2
 
 # test
