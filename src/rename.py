@@ -38,7 +38,7 @@ def _find_new_filename(file: str, exif_name: str) -> str:
     suggested_path = Path(filepath.parent, exif_name + filepath.suffix.lower())
     if not suggested_path.is_file():
         return str(suggested_path)
-    for suffix in range(1, 10 ** 5):
+    for suffix in range(1, 10**5):
         suggested_path = suggested_path.with_name(
             exif_name + "(" + str(suffix) + ")" + filepath.suffix.lower()
         )
