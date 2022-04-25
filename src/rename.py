@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from typing import List
 
-from src import timestamp_finder
+import timestamp_finder
 
 
 def rename_files(root: str = ".") -> None:
