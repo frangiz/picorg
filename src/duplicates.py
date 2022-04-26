@@ -3,10 +3,12 @@ from itertools import combinations
 from pathlib import Path
 from typing import List
 
+<<<<<<< HEAD
 import settings
+=======
+>>>>>>> a3044f9 (Moved settings from the duplicates module. This fixes #37.)
 
-
-def handle_duplicates() -> List[Path]:
+def handle_duplicates(pic_paths: List[Path]) -> List[Path]:
     extensions = [".jpg"]
 
     files = []
@@ -34,10 +36,9 @@ def handle_duplicates() -> List[Path]:
     for file_ext in extensions:
         for filepath in Path().glob("*" + file_ext):
             files.append(filepath)
-    paths = settings.get("pic_paths", [])
-    for path in paths:
+    for path in pic_paths:
         for file_ext in extensions:
-            for filepath in Path(path).glob("**/*" + file_ext):
+            for filepath in path.glob("**/*" + file_ext):
                 matching_file = next(
                     (f for f in files if f.name == filepath.name), None
                 )

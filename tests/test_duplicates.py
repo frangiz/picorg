@@ -1,7 +1,7 @@
 import os
 import pathlib
 
-from src import duplicates, settings
+from src import duplicates
 from tests import test_base
 
 TEST_DIR = ""
@@ -19,8 +19,6 @@ def setup_function(function):
     global PREV_WORKING_DIR
     PREV_WORKING_DIR = os.getcwd()
     os.chdir(TEST_DIR)
-    # Need to change the settings dir or else we might destroy our own config.
-    settings.SETTINGS_DIR = pathlib.Path(".picorg")
 
 
 def teardown_function(function):
@@ -31,7 +29,7 @@ def test_find_duplicates_duplicates_folder_not_created_if_no_file_equals():
     pathlib.Path("pic1.jpg").write_bytes(b"Some bytes here")
     pathlib.Path("pic2.jpg").write_bytes(b"Some different bytes here")
 
-    duplicates.handle_duplicates()
+    duplicates.handle_duplicates(pic_paths=[])
 
     assert not pathlib.Path("duplicates").exists()
 
@@ -43,7 +41,7 @@ def test_find_duplicates_two_files_same_content_file_with_biggest_name_is_moved(
     pathlib.Path("pic4.jpg").write_bytes(b"Some bytes here")
     pathlib.Path("pic1 (1).jpg").write_bytes(b"Some bytes here")
 
-    result = duplicates.handle_duplicates()
+    result = duplicates.handle_duplicates(pic_paths=[])
 
     assert pathlib.Path("duplicates").is_dir()
     assert pathlib.Path("pic1.jpg").is_file()
@@ -77,8 +75,7 @@ def test_find_duplicates_compare_files_to_the_ones_in_pic_paths():
     pathlib.Path("pic1.jpg").write_bytes(b"Some bytes here")
     pathlib.Path("pic11.jpg").write_bytes(b"Some bytes here")
 
-    settings.get("pic_paths", [str(pathlib.Path("pic_lib_1"))])
-    result = duplicates.handle_duplicates()
+    result = duplicates.handle_duplicates(pic_paths=[pathlib.Path("pic_lib_1")])
 
     assert pathlib.Path("pic_lib_1", "subfolder1", "pic1.jpg").is_file()
     assert pathlib.Path("pic_lib_1", "subfolder1", "pic2.jpg").is_file()

@@ -1,7 +1,9 @@
 import argparse
+from pathlib import Path
 
 from duplicates import handle_duplicates
 from rename import rename_files
+import settings
 
 
 def main():
@@ -21,7 +23,8 @@ def main():
     if args.action == "rename":
         rename_files()
     elif args.action == "duplicates":
-        result = handle_duplicates()
+        pic_paths = settings.get("pic_paths", [])
+        result = handle_duplicates([Path(p) for p in pic_paths])
         print(f"Found {len(result)} duplicates.")
 
 
