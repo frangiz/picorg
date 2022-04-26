@@ -1,9 +1,9 @@
 import argparse
 from pathlib import Path
 
-import settings
 from duplicates import handle_duplicates
 from rename import rename_files
+from settings import Settings
 
 
 def main():
@@ -19,12 +19,12 @@ def main():
     )
 
     args = parser.parse_args()
+    settings = Settings.from_file(Path(Path.cwd(), ".picorg", "settings.json"))
 
     if args.action == "rename":
         rename_files()
     elif args.action == "duplicates":
-        pic_paths = settings.get("pic_paths", [])
-        result = handle_duplicates([Path(p) for p in pic_paths])
+        result = handle_duplicates(settings.pic_paths)
         print(f"Found {len(result)} duplicates.")
 
 
