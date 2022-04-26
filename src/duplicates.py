@@ -3,10 +3,6 @@ from itertools import combinations
 from pathlib import Path
 from typing import List
 
-<<<<<<< HEAD
-import settings
-=======
->>>>>>> a3044f9 (Moved settings from the duplicates module. This fixes #37.)
 
 def handle_duplicates(pic_paths: List[Path]) -> List[Path]:
     extensions = [".jpg"]

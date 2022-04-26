@@ -1,9 +1,9 @@
 import argparse
 from pathlib import Path
 
+import settings
 from duplicates import handle_duplicates
 from rename import rename_files
-import settings
 
 
 def main():
