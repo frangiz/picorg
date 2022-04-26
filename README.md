@@ -41,9 +41,4 @@ pip install -e .
 Run the command `pre-commit run --verbose --all-files --show-diff-on-failure` before any commits on order to be consistent with formatting and having sorted imports.
 
 ## Creating a new version.
-* Create a new version by bumping the version in setup.py.
-* Commit and push.
-* Wait for Github to build.
-* Create a tag in git and push.
-* Wait for Github to build the tag.
-* Push the new package to pypi using `twine upload dist/picorg-<VERSION>-*`
+* Create a new tag and push. The publishing of the new version is done automagically.
