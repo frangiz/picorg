@@ -1,32 +1,36 @@
 import json
 from pathlib import Path
+from typing import List
+
+from pydantic import BaseModel
 
 SETTINGS_DIR = Path(Path.home(), ".picorg")
 
 
-def get(key, default_value):
-    SETTINGS_DIR.mkdir(exist_ok=True)
-    settings_file = SETTINGS_DIR.joinpath("settings.json")
+class Settings(BaseModel):
+    file_path: Path = Path()
+    pic_paths: List[Path] = []
 
-    settings = {}
-    if settings_file.is_file():
-        with open(settings_file, "r") as f:
-            try:
-                settings = json.load(f)
-            except json.JSONDecodeError as e:
-                print("Unable to parse config file.")
-                print(e)
-                return None
-    else:
-        settings_file.touch(exist_ok=True)
-    if key not in settings:
-        settings[key] = default_value
-    with open(settings_file, "w") as f:
-        f.write(json.dumps(settings, sort_keys=True, indent=4))
-    return settings[key]
+    @staticmethod
+    def from_file(file_path: Path) -> "Settings":
+        if file_path.exists():
+            settings = Settings.parse_file(file_path)
+            settings.file_path = file_path
+            return settings
+        file_path.parent.mkdir(exist_ok=True, parents=True)
+        settings = Settings()
+        settings.file_path = file_path
+        settings.save()
+        return settings
+
+    def save(self) -> None:
+        with open(self.file_path, "w") as f:
+            f.write(
+                json.dumps(self.dict(exclude={"file_path"}), sort_keys=True, indent=4)
+            )
 
 
 if __name__ == "__main__":
-    get("my.key", 42)
-    get("some.list", [])
-    get("some.list.with.values", ["a value"])
+    settings = Settings.from_file(Path(Path.cwd(), ".picorg", "settings.json"))
+    print(settings.dict())
+    settings.save()
