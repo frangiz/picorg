@@ -4,7 +4,7 @@ import shutil
 from src import rename
 from tests import test_base
 
-TEST_DIR = ""
+TEST_DIR = pathlib.Path()
 
 
 def setup_module(module):
