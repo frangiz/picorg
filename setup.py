@@ -20,7 +20,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["pillow", "exifread"],
+    install_requires=["pillow", "exifread", "pydantic"],
     url="https://github.com/frangiz/picorg",
     author="Björn Olsson Jarl",
     author_email="frangiz@gmail.com",
