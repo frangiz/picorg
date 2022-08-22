@@ -1,9 +1,8 @@
 import argparse
-from pathlib import Path
 
 from duplicates import handle_duplicates
 from rename import rename_files
-from settings import Settings
+from settings import SETTINGS_FILEPATH, Settings
 
 
 def main():
@@ -19,7 +18,7 @@ def main():
     )
 
     args = parser.parse_args()
-    settings = Settings.from_file(Path(Path.cwd(), ".picorg", "settings.json"))
+    settings = Settings.from_file(SETTINGS_FILEPATH)
 
     if args.action == "rename":
         rename_files()

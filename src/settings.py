@@ -4,7 +4,7 @@ from typing import List
 
 from pydantic import BaseModel
 
-SETTINGS_DIR = Path(Path.home(), ".picorg")
+SETTINGS_FILEPATH = Path(Path.home(), ".picorg", "settings.json")
 
 
 class Settings(BaseModel):
