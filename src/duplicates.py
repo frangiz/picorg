@@ -10,8 +10,7 @@ def handle_duplicates(pic_paths: List[Path]) -> List[Path]:
     files = []
     result = []
     for file_ext in extensions:
-        for filepath in Path().glob("*" + file_ext):
-            files.append(filepath)
+        files.extend(iter(Path().glob(f"*{file_ext}")))
     for file1, file2 in combinations(files, 2):
         # If any of the two files have been moved, just continue the iteration
         if not file1.is_file() or not file2.is_file():
@@ -30,11 +29,10 @@ def handle_duplicates(pic_paths: List[Path]) -> List[Path]:
 
     files.clear()
     for file_ext in extensions:
-        for filepath in Path().glob("*" + file_ext):
-            files.append(filepath)
+        files.extend(iter(Path().glob(f"*{file_ext}")))
     for path in pic_paths:
         for file_ext in extensions:
-            for filepath in path.glob("**/*" + file_ext):
+            for filepath in path.glob(f"**/*{file_ext}"):
                 matching_file = next(
                     (f for f in files if f.name == filepath.name), None
                 )
@@ -47,4 +45,5 @@ def handle_duplicates(pic_paths: List[Path]) -> List[Path]:
                     new_filepath = Path("duplicates", matching_file.name)
                     matching_file.replace(new_filepath)
                     result.append(new_filepath)
+
     return result
