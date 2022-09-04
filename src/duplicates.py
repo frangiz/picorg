@@ -7,7 +7,7 @@ from typing import List
 def handle_duplicates(pic_paths: List[Path]) -> List[Path]:
     extensions = [".jpg"]
 
-    files = []
+    files: List[Path] = []
     result = []
     for file_ext in extensions:
         files.extend(iter(Path().glob(f"*{file_ext}")))
