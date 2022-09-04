@@ -1,6 +1,7 @@
 import argparse
 
 from duplicates import handle_duplicates
+from find_new import find_new
 from rename import rename_files
 from settings import SETTINGS_FILEPATH, Settings
 
@@ -12,7 +13,7 @@ def main():
     parser.add_argument(
         "-a",
         "--action",
-        choices=["rename", "duplicates"],
+        choices=["rename", "duplicates", "find-new"],
         required=True,
         help="The action to execute.",
     )
@@ -25,6 +26,9 @@ def main():
     elif args.action == "duplicates":
         result = handle_duplicates(settings.pic_paths)
         print(f"Found {len(result)} duplicates.")
+    elif args.action == "find-new":
+        result = find_new(settings.pic_paths)
+        print(f"Found {len(result)} new files that was copied to ./new_images.")
 
 
 if __name__ == "__main__":

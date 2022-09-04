@@ -9,7 +9,14 @@ setup(
     description="A script that helps you organize your pictures.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    py_modules=["picorg", "timestamp_finder", "rename", "duplicates", "settings"],
+    py_modules=[
+        "picorg",
+        "timestamp_finder",
+        "rename",
+        "duplicates",
+        "settings",
+        "find_new",
+    ],
     package_dir={"": "src"},
     classifiers=[
         "Programming Language :: Python :: 3",
