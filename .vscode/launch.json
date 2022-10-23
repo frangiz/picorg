@@ -9,7 +9,16 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "-a duplicates",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["-a", "duplicates"]
         }
     ]
 }
