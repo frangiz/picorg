@@ -58,10 +58,7 @@ class ExifReadWrapper:
             with open(filename, "rb") as f:
                 tags = exifread.process_file(f)  # Return Exif tags
             field = ExifReadWrapper.__get_field(tags, "EXIF DateTimeDigitized")
-            if field is None:
-                return None
-
-            return str(field)
+            return None if field is None else str(field)
         except Exception:
             # print(e.__repr__())
             return None

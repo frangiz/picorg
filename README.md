@@ -20,6 +20,10 @@ picorg -a rename
 # all the directories listed in pic_paths (in the settings file). If a file matches by name and content,
 # the file in current working dir will be moved to the *duplicates* folder.
 picorg -a duplicates
+
+# Finding new images in current working dir. Useful when syncing images from a mobile phone to a dir and
+# then copying the images to another place.
+picorg -a find-new
 ```
 
 ## Configuration

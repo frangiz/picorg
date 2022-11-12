@@ -40,8 +40,9 @@ def _find_new_filename(file: str, exif_name: str) -> str:
         return str(suggested_path)
     for suffix in range(1, 10**5):
         suggested_path = suggested_path.with_name(
-            exif_name + "(" + str(suffix) + ")" + filepath.suffix.lower()
+            f"{exif_name}({str(suffix)}){filepath.suffix.lower()}"
         )
+
         if not suggested_path.is_file():
             return str(suggested_path)
     raise RuntimeError("This should never happen...")
@@ -54,7 +55,7 @@ def _handle_no_exif_found(file: str) -> None:
     new_filepath = Path(filepath.parent, "NOK", filepath.name)
     new_filepath.parent.mkdir(exist_ok=True)
     filepath.rename(new_filepath)
-    print("File NOK: {}".format(file))
+    print(f"File NOK: {file}")
 
 
 if __name__ == "__main__":
