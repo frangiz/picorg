@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="picorg",
-    version="0.2.6",
+    version="0.2.7",
     description="A script that helps you organize your pictures.",
     long_description=long_description,
     long_description_content_type="text/markdown",
