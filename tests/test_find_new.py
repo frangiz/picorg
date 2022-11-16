@@ -2,8 +2,9 @@ import os
 import pathlib
 import shutil
 
+import test_base
+
 from src import find_new
-from tests import test_base
 
 TEST_DIR = pathlib.Path()
 PREV_WORKING_DIR = ""

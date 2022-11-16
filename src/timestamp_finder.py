@@ -44,7 +44,7 @@ class PILWrapper:
 
     @staticmethod
     def __get_field(exif, field):
-        for (k, v) in exif.items():
+        for k, v in exif.items():
             # print(str(TAGS.get(k)) +": " +str(v))
             if TAGS.get(k) == field:
                 return v
@@ -65,7 +65,7 @@ class ExifReadWrapper:
 
     @staticmethod
     def __get_field(exif, field):
-        for (k, v) in exif.items():
+        for k, v in exif.items():
             # print(str(k) +": " +str(v))
             if k == field:
                 return v

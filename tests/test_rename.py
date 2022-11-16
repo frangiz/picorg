@@ -1,8 +1,9 @@
 import pathlib
 import shutil
 
+import test_base
+
 from src import rename
-from tests import test_base
 
 TEST_DIR = pathlib.Path()
 
@@ -61,7 +62,7 @@ def test_find_new_filename():
     pathlib.Path(TEST_DIR, "20070802_123020(1).jpg").touch()
 
     current_file = pathlib.Path(TEST_DIR, "pic1.jpg")
-    new_name = rename._find_new_filename(str(current_file), "20070802_123020")
+    new_name = rename.find_new_filename(str(current_file), "20070802_123020")
 
     result = pathlib.Path(new_name)
     assert result.parent == current_file.parent
@@ -72,6 +73,6 @@ def test_find_new_filename_file_aleady_renamed():
     pathlib.Path(TEST_DIR, "20070802_123020.jpg").touch()
 
     current_file = pathlib.Path(TEST_DIR, "20070802_123020.jpg")
-    new_name = rename._find_new_filename(str(current_file), "20070802_123020")
+    new_name = rename.find_new_filename(str(current_file), "20070802_123020")
 
     assert new_name == str(current_file)

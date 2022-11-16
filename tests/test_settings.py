@@ -1,7 +1,8 @@
 from pathlib import Path
 
+import test_base
+
 from src.settings import Settings
-from tests import test_base
 
 TEST_DIR = Path()
 

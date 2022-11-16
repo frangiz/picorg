@@ -1,8 +1,9 @@
 import os
 import pathlib
 
+import test_base
+
 from src import duplicates
-from tests import test_base
 
 TEST_DIR = pathlib.Path()
 PREV_WORKING_DIR = ""
