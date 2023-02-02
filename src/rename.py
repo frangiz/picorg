@@ -17,7 +17,7 @@ def rename_file(file) -> None:
     if exif_name is None:
         _handle_no_exif_found(file)
     else:
-        new_filename = _find_new_filename(file, exif_name)
+        new_filename = find_new_filename(file, exif_name)
         if new_filename != file:
             os.rename(file, new_filename)
 
@@ -31,7 +31,7 @@ def _list_files(root: str) -> List[Path]:
     return result
 
 
-def _find_new_filename(file: str, exif_name: str) -> str:
+def find_new_filename(file: str, exif_name: str) -> str:
     filepath = Path(file)
     if filepath.name.startswith(exif_name):
         return file

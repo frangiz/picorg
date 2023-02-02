@@ -19,6 +19,15 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": ["-a", "duplicates"]
+        },
+        {
+            "name": "-a find-new",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["-a", "find-new"],
+            "cwd": "${workspaceFolder}/tmp"
         }
     ]
 }
