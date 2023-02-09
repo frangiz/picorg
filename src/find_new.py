@@ -52,7 +52,10 @@ def find_new(pic_paths: List[Path]) -> List[Path]:
                 continue
             exif_name = timestamp_finder.get_timestamp(candidate)
             new_img_candidates[str(find_new_filename(candidate, exif_name))] = candidate
+    print(f"Found {len(new_img_candidates.keys())} new image candidates")
 
+    cache_batch_size = 25
+    busted_candidates_counter = 0
     for path, file_ext in itertools.product(pic_paths, extensions):
         for filepath in path.glob(f"**/*{file_ext}"):
             if filepath.name not in new_img_candidates:
@@ -61,6 +64,10 @@ def find_new(pic_paths: List[Path]) -> List[Path]:
             if filecmp.cmp(busted_candidate, filepath, shallow=False):
                 local_cache.ignore_file(busted_candidate)
                 del new_img_candidates[filepath.name]
+                busted_candidates_counter += 1
+                if busted_candidates_counter == cache_batch_size:
+                    local_cache.save()
+                    busted_candidates_counter == 0
             else:
                 # TODO: handle this case where filename matches but not the
                 # file contents.
@@ -75,7 +82,7 @@ def find_new(pic_paths: List[Path]) -> List[Path]:
         print("No new images.")
     else:
         Path("new_images").mkdir(exist_ok=True)
-        print("New images:")
+        print(f"New images: {len(new_img_candidates.keys())}")
         for new_img in new_img_candidates.values():
             copy2(new_img, "new_images/")
     return list(new_img_candidates.values())
