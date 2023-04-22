@@ -1,7 +1,7 @@
 # required to run
 pillow==9.5.0
 exifread==3.0.0
-pydantic==1.10.5
+pydantic==1.10.7
 
 # test
 pytest==7.3.1
