@@ -12,4 +12,4 @@ pytest-mock==3.11.1
 pre-commit==3.5.0
 
 # building package
-build==0.10.0
+build==1.0.3
