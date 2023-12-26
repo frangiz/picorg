@@ -2,7 +2,7 @@ from pathlib import Path
 
 import test_base
 
-from src.settings import Settings
+from picorg.settings import Settings
 
 TEST_DIR = Path()
 

@@ -3,7 +3,7 @@ import shutil
 
 import test_base
 
-from src import rename
+from picorg import rename
 
 TEST_DIR = pathlib.Path()
 

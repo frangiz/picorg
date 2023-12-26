@@ -43,9 +43,14 @@ test:
 dev: venv
 	. $(VENV_ACTIVATE) && $(PIP) install -e .
 
+# Run pre-commit
+pcr:
+	pre-commit run --all-files --show-diff-on-failure
+
 # Build package
 build: test
-	. $(VENV_ACTIVATE) && $(PYTHON) setup.py sdist bdist_wheel
+	. $(VENV_ACTIVATE) && $(PYTHON) -m build
+	. $(VENV_ACTIVATE) && $(PIP) install -e .
 
 # Help
 help:

@@ -4,7 +4,7 @@ import shutil
 
 import test_base
 
-from src import find_new
+from picorg import find_new
 
 TEST_DIR = pathlib.Path()
 PREV_WORKING_DIR = ""
@@ -41,7 +41,9 @@ def test_find_new_finds_a_new_file_if_name_is_unique(mocker):
     os.chdir("work_dir")
     unique_img = pathlib.Path("20220916_000002.jpg")
     unique_img.write_bytes(b"Some different bytes here")
-    mocker.patch("timestamp_finder.get_timestamp", return_value="20220916_000002")
+    mocker.patch(
+        "picorg.timestamp_finder.get_timestamp", return_value="20220916_000002"
+    )
 
     res = find_new.find_new(pic_paths=[PIC_PATH_1])
 
@@ -59,7 +61,9 @@ def test_find_new_finds_a_new_file_that_already_exists_with_same_content_and_exi
     shutil.copy2(duplicated_image, "work_dir")
     pathlib.Path("work_dir", duplicated_image.name).rename("pic1.jpg")
     os.chdir("work_dir")
-    mocker.patch("timestamp_finder.get_timestamp", return_value="20220916_000001")
+    mocker.patch(
+        "picorg.timestamp_finder.get_timestamp", return_value="20220916_000001"
+    )
 
     res = find_new.find_new(pic_paths=[PIC_PATH_1])
 
@@ -94,7 +98,9 @@ def test_find_new_finds_a_new_file_if_only_name_in_cache(mocker):
     cache.save()
     not_cached_img.write_bytes(b"Some other bytes here with different size")
 
-    mocker.patch("timestamp_finder.get_timestamp", return_value="20220916_000001")
+    mocker.patch(
+        "picorg.timestamp_finder.get_timestamp", return_value="20220916_000001"
+    )
 
     res = find_new.find_new(pic_paths=[PIC_PATH_1])
 

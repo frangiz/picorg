@@ -7,8 +7,8 @@ from typing import ClassVar, Dict, List
 
 from pydantic import BaseModel
 
-import timestamp_finder
-from rename import find_new_filename
+from picorg import timestamp_finder
+from picorg.rename import find_new_filename
 
 
 class IgnoredFile(BaseModel):

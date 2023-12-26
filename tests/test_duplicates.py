@@ -3,7 +3,7 @@ import pathlib
 
 import test_base
 
-from src import duplicates
+from picorg import duplicates
 
 TEST_DIR = pathlib.Path()
 PREV_WORKING_DIR = ""
