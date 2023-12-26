@@ -59,4 +59,6 @@ help:
 	@echo "make clean - Clean up the project"
 	@echo "make venv - Set up the virtual environment"
 	@echo "make test - Run tests with pytest"
+	@echo "make dev - Setup a dev environment and installs the package locally"
+	@echo "make pcr - Run pre-commit hooks"
 	@echo "make build - Build the package"
