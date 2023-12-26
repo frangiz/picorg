@@ -51,7 +51,9 @@ def find_new(pic_paths: List[Path]) -> List[Path]:
             if local_cache.file_in_cache(candidate):
                 continue
             exif_name = timestamp_finder.get_timestamp(candidate)
-            new_img_candidates[str(find_new_filename(candidate, exif_name))] = candidate
+            new_img_candidates[
+                str(find_new_filename(str(candidate), exif_name))
+            ] = candidate
     print(f"Found {len(new_img_candidates.keys())} new image candidates")
 
     cache_batch_size = 25

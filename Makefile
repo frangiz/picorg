@@ -41,11 +41,12 @@ test:
 
 # Setup env for dev
 dev: venv
+	. $(VENV_ACTIVATE) && pre-commit autoupdate
 	. $(VENV_ACTIVATE) && $(PIP) install -e .
 
 # Run pre-commit
 pcr:
-	pre-commit run --all-files --show-diff-on-failure
+	. $(VENV_ACTIVATE) && pre-commit run --all-files
 
 # Build package
 build: test
