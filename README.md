@@ -30,15 +30,9 @@ picorg -a find-new
 A settings file is created in <USER_HOME>/.picorg that stores the users settings.
 
 ## Developing
-Install dependencies from the requirements.txt file
-```python
-pip install -r requirements.txt
-```
-
-Create a package and install with
-```python
-python -m build
-pip install -e .
+Setup the environment with
+```zsh
+make dev
 ```
 
 ### Before commit
