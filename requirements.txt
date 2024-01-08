@@ -1,5 +1,5 @@
 # required to run
-pillow==10.1.0
+pillow==10.2.0
 exifread==3.0.0
 pydantic==2.5.3
 
