@@ -12,6 +12,7 @@
         "./src"
     ],
     "python.analysis.extraPaths": [
-        "./src"
+        "./src",
+        "./src/picorg"
     ]
 }

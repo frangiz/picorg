@@ -131,3 +131,5 @@ dmypy.json
 tests/working_dir
 .venv3.9/
 .picorg
+.DS_Store
+benchmark_data/
