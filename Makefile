@@ -37,7 +37,13 @@ venv:
 
 # Run tests
 test:
-	. $(VENV_ACTIVATE) && pytest
+	@if [ -z "$(filter-out $@,$(MAKECMDGOALS))" ]; then \
+        . $(VENV_ACTIVATE) && pytest; \
+    else \
+        . $(VENV_ACTIVATE) && pytest tests/test_$(filter-out $@,$(MAKECMDGOALS)).py; \
+    fi
+%:
+    @:
 
 # Setup env for dev
 dev: venv
