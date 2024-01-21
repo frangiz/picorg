@@ -16,6 +16,8 @@ setup(
         "duplicates",
         "settings",
         "find_new",
+        "index",
+        "cache",
     ],
     package_dir={"": "src"},
     classifiers=[

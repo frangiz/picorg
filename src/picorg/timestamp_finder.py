@@ -34,6 +34,8 @@ class PILWrapper:
 
             if field is not None and date_text_to_filename(field[0]) is not None:
                 return field[0]
+            elif field is not None and date_text_to_filename(field) is not None:
+                return field
 
             field = PILWrapper.__get_field(exif_data, "DateTimeDigitized")
             if field is not None and date_text_to_filename(field[0]) is not None:
