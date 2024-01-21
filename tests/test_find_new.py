@@ -103,7 +103,6 @@ def test_find_new_finds_a_new_file_if_only_name_in_cache(mocker):
     )
 
     res = find_new.find_new(pic_paths=[PIC_PATH_1])
-
     assert res[0] == not_cached_img
     assert list(pathlib.Path("new_images").glob("**/*"))[0].name == not_cached_img.name
 

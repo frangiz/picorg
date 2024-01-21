@@ -55,7 +55,7 @@ pcr:
 	. $(VENV_ACTIVATE) && pre-commit run --all-files
 
 # Build package
-build: test
+build:
 	. $(VENV_ACTIVATE) && $(PYTHON) -m build
 	. $(VENV_ACTIVATE) && $(PIP) install -e .
 
