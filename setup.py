@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="picorg",
-    version="0.2.9",
+    version="0.3.0-rc1",
     description="A script that helps you organize your pictures.",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -16,6 +16,8 @@ setup(
         "duplicates",
         "settings",
         "find_new",
+        "indexer",
+        "cache",
     ],
     package_dir={"": "src"},
     classifiers=[
@@ -27,10 +29,13 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=["pillow", "exifread", "pydantic"],
+    install_requires=["pillow", "exifread", "pydantic", "click"],
     url="https://github.com/frangiz/picorg",
     author="Björn Olsson Jarl",
     author_email="frangiz@gmail.com",
-    entry_points={"console_scripts": ["picorg = picorg:main"]},
+    entry_points="""
+        [console_scripts]
+        picorg=picorg.picorg:cli
+    """,
     python_requires=">=3.8",
 )

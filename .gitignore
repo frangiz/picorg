@@ -133,3 +133,4 @@ tests/working_dir
 .picorg
 .DS_Store
 benchmark_data/
+.picorg_cache
