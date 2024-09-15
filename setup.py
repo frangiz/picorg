@@ -20,10 +20,10 @@ setup(
     package_dir={"": "src"},
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
@@ -32,5 +32,5 @@ setup(
     author="Björn Olsson Jarl",
     author_email="frangiz@gmail.com",
     entry_points={"console_scripts": ["picorg = picorg:main"]},
-    python_requires=">=3.8",
+    python_requires=">=3.9",
 )
