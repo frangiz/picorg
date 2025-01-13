@@ -1,7 +1,7 @@
 # required to run
-pillow==11.0.0
+pillow==11.1.0
 exifread==3.0.0
-pydantic==2.9.0
+pydantic==2.10.5
 
 # test
 pytest==8.3.3
